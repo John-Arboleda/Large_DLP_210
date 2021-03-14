@@ -7,13 +7,12 @@ function initPop = ParGen0_MDVRP(depotConfig, N_Indivs, DIST, CUSTOMERS, HUBS)
         %Lista de clientes por asignar
         cust_4_assign = CUSTOMERS{:,:};
         while ~isempty(cust_4_assign)
-            %distancia euclidiana de cada uno de los nodos a los depósitos
+            %distancia desde cada uno de los nodos a los depósitos
             matHubCust = DIST([aIndiv.ID],cust_4_assign(:,1));
             Depots = 1:height(HUBS);%Todos los hubs
             openDepots = Depots(depotConfig);%Hubs abiertos
             %Selecciona el nodo más cercano de un depósito aleatorio
             [indD,depot] = selRandHub(openDepots,matHubCust);
-            
             min_cust = cust_4_assign(indD,:);
             %Restricción de capacidad del depósito
             depotCap = aIndiv(depot).Load + min_cust(2) <= aIndiv(depot).Capacity;
