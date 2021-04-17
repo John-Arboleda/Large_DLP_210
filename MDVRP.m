@@ -8,9 +8,7 @@ function finalPop = MDVRP(depotConfig, N_Gen, N_Indivs, DIST, CUSTOMERS, HUBS, T
     
     parentPop = rankedPop;
     toc
-    
     for g = 1:N_Gen
-        
         % Hacer torneo?
         childrenPop = ChildGen_MDVRP(parentPop, N_Indivs, DIST, CUSTOMERS, HUBS, TRUCKS);
         
