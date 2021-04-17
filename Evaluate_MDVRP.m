@@ -20,7 +20,7 @@ function evaluatedPop = Evaluate_MDVRP(initPop, N_Indivs, DIST, TRUCKS)
         end
         %Actualiza todas las variables de un individuo
         evaluatedPop(n).Individual = ...
-            ActualizeIndiv(evaluatedPop(n).Individual,TRUCKS.Cost);
+            UpdateIndiv(evaluatedPop(n).Individual,TRUCKS.Cost);
         %Costo total de depósitos
         hub_Cost = sum([evaluatedPop(n).Individual.Hub_Cost].*logOpen);
         %Costo total de vehículos
