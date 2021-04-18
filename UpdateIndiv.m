@@ -1,4 +1,4 @@
-function Indiv = ActualizeIndiv(Indiv,Truck_Cost)
+function Indiv = UpdateIndiv(Indiv,Truck_Cost)
 %Actualiza las variables dependientes del ruteo del Individuo
     openHubs = 1:length(Indiv);
     openHubs = openHubs([Indiv.Open]);
@@ -26,7 +26,7 @@ function Indiv = ActualizeIndiv(Indiv,Truck_Cost)
             Indiv(h).Open = true;
         end
         %Actualiza costos fijos de vehículos, costo de ruteo, costo total
-        Indiv(h).Veh_Cost = length(Indiv(h).Hub)*Truck_Cost;
+        Indiv(h).Veh_Cost = Indiv(h).N_veh*Truck_Cost;
         Indiv(h).Travel_Cost = sum([Indiv(h).Hub.Travel_Cost]);
         Indiv(h).Total_Cost = Indiv(h).Hub_Cost + Indiv(h).Travel_Cost +...
             Indiv(h).Veh_Cost;

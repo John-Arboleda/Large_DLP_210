@@ -65,7 +65,7 @@ function nodeIncomplIndiv = extractNode(Indiv,indexList,Op,type)
         else
             %Agrega a solución a vecinadario
             s = k - emptyCounter;
-            copyIndiv = ActualizeIndiv(copyIndiv);
+            copyIndiv = UpdateIndiv(copyIndiv);
             nodeIncomplIndiv(s).Customers = customer;
             nodeIncomplIndiv(s).Incomplete = copyIndiv; 
             nodeIncomplIndiv(s).Index = indexList(k,:);
